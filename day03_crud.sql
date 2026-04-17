@@ -219,7 +219,16 @@ SELECT menu_name, price FROM menus ORDER BY id LIMIT 5 OFFSET 10;
 -- ※ 공식: OFFSET = (페이지 번호 - 1) × 페이지 크기
 
 
-```sql
+DROP TABLE restaurants;
+CREATE TABLE restaurants (
+    id               INT          PRIMARY KEY AUTO_INCREMENT,
+    name             VARCHAR(50)  NOT NULL,
+    category         VARCHAR(20)  NOT NULL,
+    address          VARCHAR(100),
+    rating           DECIMAL(2,1) DEFAULT 0.0,
+    created_at       TIMESTAMP    DEFAULT CURRENT_TIMESTAMP
+);
+
 INSERT INTO restaurants (name, category, address, rating) VALUES
 ('한판삼겹살', '한식', '부산시 해운대구 중동 123-1', 4.5),
 ('도쿄라멘', '일식', '서울시 마포구 홍대입구 45-2', 4.2),
@@ -271,7 +280,6 @@ INSERT INTO restaurants (name, category, address, rating) VALUES
 ('스페인 파에야', '양식', '서울시 서초구 방배동 84-3', 4.6),
 ('대구 뭉티기', '한식', '대구시 중구 동성로 19-2', 4.5),
 ('오키나와 소키소바', '일식', '서울시 영등포구 당산동 72-6', 4.0);
-```
 
 -- ============================================================
 -- PART 5 — UPDATE & DELETE (핵버튼 주의!)
